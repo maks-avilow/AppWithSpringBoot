@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-university-groups-table
+      author: admin
+      changes:
+        - createTable:
+            tableName: university_groups
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: group_number
+                  type: varchar (100)
+  - changeSet:
+      id: create-students-type-table
+      author: admin
+      changes:
+        - createTable:
+            tableName: students
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar (50)
+              - column:
+                  name: university_groups_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_students_university_groups
+                    referencedTableName: university_groups
+                    referencedColumnNames: id
+
+
+
+
+
+
+
+
+
+
